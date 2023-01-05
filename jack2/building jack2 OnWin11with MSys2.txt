@@ -1,0 +1,14 @@
+This help is working implementation of https://github.com/jackaudio/jack2/blob/develop/windows/README_MINGW. But instead of using sjlj gcc, it uses default gcc and downloads dependencies from online repositories instead of building them, which is another tedious task. Default gcc used, as the sjlj version gcc that mentioned in the guide, fails to configure jack. If some one wants to use sjlj version, he can recompile gcc with that feature enabled and use the same.
+
+The implementation is in form of script "buildjack2.sh" that need to be put in home directory ( $MSys2BaseDir/home/{user}/ ) and executed from there.
+
+1. Download MSys2 from https://www.msys2.org/ and install. Follow the steps mentioned on that page.
+2. Copy buildjack2.sh in $MSys2BaseDir/home/{user}/ directory, where $MSys2BaseDir is path of Msys2 installation diectory in windows. 
+3. Open Mingw64 console from program menu.
+4. Execute the script by typing ./buildjack2.sh on prompt and press ENTER.
+5. Keep pressing ENTER key for the questions asked. During package updation it may ask to close and restart the Mingw console. follow that.
+6. After updating the packages, it downloads jack2 from github. Alternately you can copy pre-downloaded jack2 directory in $HOME/ directory (in that case it will not download jack2 from github)
+7. In next step it configures jack2, but (due to script bug) doesnt proceed further after success message. Press Ctrl+C once and it proceeds to build jack 
+7. Binaries are in ~/jack2/build folder.
+
+
